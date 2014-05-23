@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>actions</key>
+	<array>
+		<dict>
+			<key>action</key>
+			<dict>
+				<key>ActionParameters</key>
+				<dict>
+					<key>outputTypeTag</key>
+					<integer>2</integer>
+					<key>positionTag</key>
+					<integer>0</integer>
+					<key>sizeFormatTag</key>
+					<integer>99</integer>
+					<key>targetSizeX</key>
+					<real>{width}</real>
+					<key>targetSizeY</key>
+					<real>{height}</real>
+					<key>userAgentTag</key>
+					<integer>0</integer>
+				</dict>
+				<key>BundleIdentifier</key>
+				<string>com.apple.Automator.Website_Popup</string>
+				<key>nibPath</key>
+				<string>/System/Library/Automator/Website Popup.action/Contents/Resources/Base.lproj/main.nib</string>
+			</dict>
+		</dict>
+	</array>
+</dict>
+</plist>
