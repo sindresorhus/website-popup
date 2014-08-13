@@ -1,6 +1,6 @@
 'use strict';
 var assert = require('assert');
-var websitePopup = require('./index');
+var websitePopup = require('./');
 
 it('should create a website popup', function (cb) {
 	this.timeout(20000);

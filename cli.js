@@ -1,33 +1,35 @@
 #!/usr/bin/env node
 'use strict';
 var pkg = require('./package.json');
-var websitePopup = require('./index');
-var input = process.argv[2];
+var websitePopup = require('./');
+var argv = process.argv.slice(2);
+var input = argv[0];
 
 function help() {
 	console.log([
-		pkg.description,
 		'',
-		'Usage',
-		'  $ website-popup <url> [--size <size>]',
+		'  ' + pkg.description,
 		'',
-		'Example',
-		'  $ website-popup http://sindresorhus.com --size 600x400'
+		'  Usage',
+		'    website-popup <url> [--size <size>]',
+		'',
+		'  Example',
+		'    website-popup http://sindresorhus.com --size 600x400'
 	].join('\n'));
 }
 
-if (process.argv.indexOf('--help') !== -1) {
+if (!input || argv.indexOf('--help') !== -1) {
 	help();
 	return;
 }
 
-if (process.argv.indexOf('--version') !== -1) {
+if (argv.indexOf('--version') !== -1) {
 	console.log(pkg.version);
 	return;
 }
 
-var sizeFlagPos = process.argv.indexOf('--size');
-var size = sizeFlagPos !== -1 ? process.argv[sizeFlagPos + 1].split('x') : [];
+var sizeFlagPos = argv.indexOf('--size');
+var size = sizeFlagPos !== -1 ? argv[sizeFlagPos + 1].split('x') : [];
 
 websitePopup({
 	url: input,

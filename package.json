@@ -3,14 +3,14 @@
   "version": "0.1.1",
   "description": "Open a website in a popup (OS X)",
   "license": "MIT",
-  "bin": {
-    "website-popup": "cli.js"
-  },
   "repository": "sindresorhus/website-popup",
   "author": {
     "name": "Sindre Sorhus",
     "email": "sindresorhus@gmail.com",
     "url": "http://sindresorhus.com"
+  },
+  "bin": {
+    "website-popup": "cli.js"
   },
   "engines": {
     "node": ">=0.10.0"
@@ -37,7 +37,7 @@
     "page"
   ],
   "dependencies": {
-    "temp-write": "^0.3.0"
+    "temp-write": "^1.0.0"
   },
   "devDependencies": {
     "mocha": "*"

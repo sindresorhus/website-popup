@@ -72,11 +72,11 @@ $ npm install --global website-popup
 ```sh
 $ website-popup --help
 
-Usage
-  $ website-popup <url> [--size <size>]
+  Usage
+    website-popup <url> [--size <size>]
 
-Example
-  $ website-popup http://sindresorhus.com --size 600x400
+  Example
+    website-popup http://sindresorhus.com --size 600x400
 ```
 
 

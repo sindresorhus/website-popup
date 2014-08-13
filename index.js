@@ -1,6 +1,6 @@
 'use strict';
 var fs = require('fs');
-var path = require('path')
+var path = require('path');
 var execFile = require('child_process').execFile;
 var tpl = fs.readFileSync(path.resolve(__dirname, 'popup.wflow'), 'utf8');
 var tempWrite = require('temp-write');
