@@ -36,6 +36,7 @@
     "page"
   ],
   "dependencies": {
+    "meow": "^3.3.0",
     "temp-write": "^1.0.0"
   },
   "devDependencies": {
