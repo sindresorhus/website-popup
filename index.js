@@ -1,28 +1,27 @@
 'use strict';
-var fs = require('fs');
-var path = require('path');
-var execFile = require('child_process').execFile;
-var tpl = fs.readFileSync(path.resolve(__dirname, 'popup.wflow'), 'utf8');
-var tempWrite = require('temp-write');
+const fs = require('fs');
+const path = require('path');
+const execa = require('execa');
+const tempWrite = require('temp-write');
 
-module.exports = function (opts, cb) {
-	if (typeof opts !== 'object' && typeof opts.url === 'string') {
-		throw new TypeError('`options.url` required');
+const tpl = fs.readFileSync(path.resolve(__dirname, 'popup.wflow'), 'utf8');
+
+module.exports = opts => {
+	opts = opts || {};
+
+	if (typeof opts.url !== 'string') {
+		return Promise.reject(new TypeError('url required'));
 	}
 
-	cb = cb || function () {};
+	const width = opts.width || 1280;
+	const height = opts.height || 1024;
+	const wflow = tpl.replace(/\{width\}/, width).replace(/\{height\}/, height);
 
-	var width = opts.width || 1280;
-	var height = opts.height || 1024;
-	var wflow = tpl.replace(/\{width\}/, width).replace(/\{height\}/, height);
+	const cp = execa('automator', ['-i', opts.url, tempWrite.sync(wflow)]);
 
-	var cp = execFile('automator', ['-i', opts.url, tempWrite.sync(wflow)], function (err) {
-		if (err) {
-			return cb(err.killed ? null : err);
-		}
+	const kill = cp.kill.bind(cp);
+	kill.then = cp.then;
+	kill.catch = cp.catch;
 
-		cb();
-	});
-
-	return cp.kill.bind(cp);
+	return kill;
 };
