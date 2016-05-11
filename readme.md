@@ -7,7 +7,7 @@
 
 ## Install
 
-```sh
+```
 $ npm install --save website-popup
 ```
 
@@ -15,49 +15,46 @@ $ npm install --save website-popup
 ## Usage
 
 ```js
-var websitePopup = require('website-popup');
+const websitePopup = require('website-popup');
 
-var close = websitePopup({
+websitePopup({
 	url: 'http://sindresorhus.com',
 	width: 600,
 	height: 400
-}, function (err) {
-	if (err) {
-		throw err;
-	}
-
-	console.log('done');
+}).then(() => {
+	// closed
 });
 
-setTimeout(close, 10000);
+const kill = websitePopup({url: 'http://sindresorhus.com'});
+setTimeout(kill, 2000);
 ```
 
 
 ## API
 
-### websitePopup(options, callback)
+### websitePopup(options)
 
-Returns a method to close the popup. Callback is optional.
+Returns a Promise-like method to kill the popup.
 
 #### options
 
 ##### url
 
-*Required*  
+*Required*<br>
 Type: `string`
 
 The url you would like to open.
 
 ##### width
 
-Type: `number`  
+Type: `number`<br>
 Default: `1280`
 
 The width of the popup.
 
 ##### height
 
-Type: `number`  
+Type: `number`<br>
 Default: `1024`
 
 The height of the popup.
@@ -65,11 +62,11 @@ The height of the popup.
 
 ## CLI
 
-```sh
+```
 $ npm install --global website-popup
 ```
 
-```sh
+```
 $ website-popup --help
 
   Usage
@@ -82,4 +79,4 @@ $ website-popup --help
 
 ## License
 
-MIT © [Sindre Sorhus](http://sindresorhus.com)
+MIT © [Sindre Sorhus](https://sindresorhus.com)

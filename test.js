@@ -1,14 +1,24 @@
-'use strict';
-var assert = require('assert');
-var websitePopup = require('./');
+import test from 'ava';
+import delay from 'delay';
+import m from './';
 
-it('should create a website popup', function (cb) {
-	this.timeout(20000);
-	var close = websitePopup({
+test('error', t => {
+	t.throws(m(), 'url required');
+	t.throws(m({url: 1}), 'url required');
+});
+
+test('result', async t => {
+	const kill = m({
 		url: 'http://sindresorhus.com',
 		width: 600,
 		height: 400
-	}, cb);
+	});
 
-	setTimeout(close, 500);
+	t.is(typeof kill, 'function');
+	t.is(typeof kill.then, 'function');
+	t.is(typeof kill.catch, 'function');
+
+	await delay(2000);
+
+	kill();
 });
