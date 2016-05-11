@@ -16,65 +16,49 @@ $ npm install --save website-popup
 
 ```js
 const websitePopup = require('website-popup');
+const url = 'https://sindresorhus.com';
 
-websitePopup({
-	url: 'http://sindresorhus.com',
-	width: 600,
-	height: 400
-}).then(() => {
+websitePopup(url, {width: 600, height: 400}).then(() => {
 	// closed
 });
 
-const kill = websitePopup({url: 'http://sindresorhus.com'});
-setTimeout(kill, 2000);
+const close = websitePopup(url);
+setTimeout(close, 2000);
 ```
 
 
 ## API
 
-### websitePopup(options)
+### websitePopup(url, [options])
 
-Returns a Promise-like method to kill the popup.
+Returns a Promise-like method to close the popup.
 
-#### options
+#### url
 
-##### url
-
-*Required*<br>
 Type: `string`
 
-The url you would like to open.
+URL to open.
+
+#### options
 
 ##### width
 
 Type: `number`<br>
 Default: `1280`
 
-The width of the popup.
+Width of the popup.
 
 ##### height
 
 Type: `number`<br>
 Default: `1024`
 
-The height of the popup.
+Height of the popup.
 
 
-## CLI
+## Related
 
-```
-$ npm install --global website-popup
-```
-
-```
-$ website-popup --help
-
-  Usage
-    $ website-popup <url> [--size <size>]
-
-  Example
-    $ website-popup http://sindresorhus.com --size 600x400
-```
+- [website-popup-cli](https://github.com/sindresorhus/website-popup-cli) - CLI for this module
 
 
 ## License

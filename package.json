@@ -9,35 +9,26 @@
     "email": "sindresorhus@gmail.com",
     "url": "sindresorhus.com"
   },
-  "bin": "cli.js",
   "engines": {
     "node": ">=4"
   },
-  "os": [
-    "darwin"
-  ],
   "scripts": {
     "test": "xo && ava"
   },
   "files": [
     "index.js",
-    "cli.js",
     "popup.wflow"
   ],
   "keywords": [
-    "cli-app",
-    "cli",
-    "bin",
+    "website",
+    "popup",
     "osx",
     "mac",
-    "website",
     "site",
-    "popup",
     "page"
   ],
   "dependencies": {
     "execa": "^0.4.0",
-    "meow": "^3.3.0",
     "temp-write": "^2.0.1"
   },
   "devDependencies": {
