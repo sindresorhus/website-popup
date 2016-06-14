@@ -1,7 +1,7 @@
 {
   "name": "website-popup",
   "version": "2.0.0",
-  "description": "Open a website in a popup (OS X)",
+  "description": "Open a website in a popup (macOS)",
   "license": "MIT",
   "repository": "sindresorhus/website-popup",
   "author": {
@@ -22,6 +22,7 @@
   "keywords": [
     "website",
     "popup",
+    "macos",
     "osx",
     "mac",
     "site",

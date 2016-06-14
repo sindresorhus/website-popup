@@ -8,7 +8,7 @@ const tpl = fs.readFileSync(path.resolve(__dirname, 'popup.wflow'), 'utf8');
 
 module.exports = (url, opts) => {
 	if (process.platform !== 'darwin') {
-		return Promise.reject(new Error('OS X only'));
+		return Promise.reject(new Error('macOS only'));
 	}
 
 	if (typeof url !== 'string') {
