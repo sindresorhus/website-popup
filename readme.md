@@ -1,4 +1,4 @@
-# website-popup [![Build Status](https://travis-ci.org/sindresorhus/website-popup.svg?branch=master)](https://travis-ci.org/sindresorhus/website-popup)
+# website-popup
 
 > Open a website in a popup *(macOS)*
 
